@@ -8,7 +8,7 @@ typedef struct Node {
     struct Node* right;
 } Node;
 
-Node* get_new_node(int data) {
+Node* create_node(int data) {
     Node* new_node = malloc(sizeof(Node));
     new_node->data = data;
     new_node->left = NULL;
@@ -18,7 +18,7 @@ Node* get_new_node(int data) {
 
 void insert(Node** rootptr, int data) {
     if (*rootptr == NULL) {
-        *rootptr = get_new_node(data);
+        *rootptr = create_node(data);
         return;
     }
 
@@ -41,6 +41,24 @@ bool search(Node* root, int data) {
     return search(root->right, data);
 }
 
+int get_min(Node* root) {
+    if (root == NULL) return 0;
+
+    if (root->left == NULL)
+        return root->data;
+
+    return get_min(root->left);
+}
+
+int get_max(Node* root) {
+    if (root == NULL) return 0;
+
+    if (root->right == NULL)
+        return root->data;
+
+    return get_max(root->right);
+}
+
 int main() {
     Node* root = NULL; // create an empty tree
 
@@ -51,10 +69,14 @@ int main() {
     insert(&root, 8);
     insert(&root, 12);
 
+    printf("after insert..\n");
     printf("20: %d\n", search(root, 20));
     printf("8: %d\n", search(root, 8));
     printf("0: %d\n", search(root, 0));
     printf("11: %d\n", search(root, 11));
+
+    printf("get_min: %d\n", get_min(root));
+    printf("get_max: %d\n", get_max(root));
 
     return 0;
 }
