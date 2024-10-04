@@ -59,6 +59,16 @@ int get_max(Node* root) {
     return get_max(root->right);
 }
 
+int get_height(Node* root) {
+    if (root == NULL) return -1;
+
+    int left_height = get_height(root->left);
+    int right_height = get_height(root->right);
+
+    int max_subtree_height = left_height >= right_height ? left_height : right_height;
+    return max_subtree_height + 1;
+}
+
 int main() {
     Node* root = NULL; // create an empty tree
 
@@ -77,6 +87,8 @@ int main() {
 
     printf("get_min: %d\n", get_min(root));
     printf("get_max: %d\n", get_max(root));
+
+    printf("get_height: %d\n", get_height(root));
 
     return 0;
 }
