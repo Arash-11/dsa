@@ -44,19 +44,21 @@ bool search(Node* root, int data) {
 int get_min(Node* root) {
     if (root == NULL) return 0;
 
-    if (root->left == NULL)
-        return root->data;
+    Node* min = root;
+    while (min->left != NULL)
+        min = min->left;
 
-    return get_min(root->left);
+    return min->data;
 }
 
 int get_max(Node* root) {
     if (root == NULL) return 0;
 
-    if (root->right == NULL)
-        return root->data;
+    Node* max = root;
+    while (max->right != NULL)
+        max = max->right;
 
-    return get_max(root->right);
+    return max->data;
 }
 
 int get_height(Node* root) {
