@@ -82,14 +82,16 @@ int main() {
     insert(&root, 12);
 
     printf("after insert..\n");
-    printf("20: %d\n", search(root, 20));
-    printf("8: %d\n", search(root, 8));
-    printf("0: %d\n", search(root, 0));
-    printf("11: %d\n", search(root, 11));
+    printf("search(20): %d\n", search(root, 20));
+    printf("search(8): %d\n", search(root, 8));
+    printf("search(0): %d\n", search(root, 0));
+    printf("search(11): %d\n", search(root, 11));
 
+    printf("\n");
     printf("get_min: %d\n", get_min(root));
     printf("get_max: %d\n", get_max(root));
 
+    printf("\n");
     printf("get_height: %d\n", get_height(root));
 
     return 0;
