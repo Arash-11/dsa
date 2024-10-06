@@ -88,6 +88,8 @@ Tree traversal: process of visiting each node in the tree, exactly once
 
 In the following tree..
 
+level-order: F D J B E G K A C I H
+
 preorder (data, left, right): F D B A C E J G I H K
 
 inorder (left, data, right): A B C D E F G H I J K
@@ -138,3 +140,10 @@ this tree is a binary search tree, and an inorder traversal of a binary search t
                                                   │     │                 
                                                   └─────┘                 
 ```
+
+level-order traversal
+- algorithm:
+  1. maintain a queue and enqueue the address of the node being visited (aka "discovered node")
+  2. as a discovered node is being visited (eg. printing out its value) and dequeued, enqueue its children nodes to be visited later
+- time complexity (assume n nodes): O(n) for best/worst/avg case
+- space complexity: O(1) for best case and O(n) for worst/avg case
