@@ -71,6 +71,27 @@ int get_height(Node* root) {
     return max_subtree_height + 1;
 }
 
+void preorder_traverse(Node* root) {
+    if (root == NULL) return;
+    printf("%d ", root->data);
+    preorder_traverse(root->left);
+    preorder_traverse(root->right);
+}
+
+void inorder_traverse(Node* root) {
+    if (root == NULL) return;
+    inorder_traverse(root->left);
+    printf("%d ", root->data);
+    inorder_traverse(root->right);
+}
+
+void postorder_traverse(Node* root) {
+    if (root == NULL) return;
+    postorder_traverse(root->left);
+    postorder_traverse(root->right);
+    printf("%d ", root->data);
+}
+
 int main() {
     Node* root = NULL; // create an empty tree
 
@@ -93,6 +114,21 @@ int main() {
 
     printf("\n");
     printf("get_height: %d\n", get_height(root));
+
+    printf("\n");
+    printf("preorder_traverse: ");
+    preorder_traverse(root);
+    printf("\n");
+
+    printf("\n");
+    printf("inorder_traverse: ");
+    inorder_traverse(root);
+    printf("\n");
+
+    printf("\n");
+    printf("postorder_traverse: ");
+    postorder_traverse(root);
+    printf("\n");
 
     return 0;
 }

@@ -35,40 +35,14 @@ height of node x = number of edges in longest path from x to a leaf node
 
 height of tree = height of root node
 
-
 ```
-                                     ┌─────┐                            
-                                     │     │                            
-                    ┌────────────────┤  1  ├─────────────────┐          
-                    │                │     │                 │          
-                    │                └─────┘                 │          
-                    │                                        │          
-                    ▼                                        ▼          
-                 ┌─────┐                                  ┌─────┐       
-                 │     │                                  │     │       
-   ┌─────────────┤  2  ├────────────┐                 ┌───┤  3  ├───┐   
-   │             │     │            │                 │   │     │   │   
-   │             └──┬──┘            │                 │   └─────┘   │   
-   │                │               │                 │             │   
-   │                │               │                 │             │   
-   │                │               │                 │             │   
-   │                │               │                 │             │   
-   ▼                ▼               ▼                 ▼             ▼   
-┌─────┐          ┌─────┐         ┌─────┐           ┌─────┐       ┌─────┐
-│     │          │     │         │     │           │     │       │     │
-│  4  │    ┌─────┤  5  ├─────┐   │  6  │           │  7  │       │  8  │
-│     │    │     │     │     │   │     │           │     │       │     │
-└─────┘    │     └─────┘     │   └─────┘           └──┬──┘       └─────┘
-           │                 │                        │                 
-           │                 │                        │                 
-           │                 │                        │                 
-           │                 │                        │                 
-           ▼                 ▼                        ▼                 
-        ┌─────┐           ┌──────┐                 ┌──────┐             
-        │     │           │      │                 │      │             
-        │  9  │           │  10  │                 │  11  │             
-        │     │           │      │                 │      │             
-        └─────┘           └──────┘                 └──────┘                       
+       1
+     /   \
+   2       3
+ / | \    / \
+4  5  6  7   8
+  / \    |
+ 9  10   11
 ```
 
 ---
@@ -98,47 +72,16 @@ postorder (left, right, data): A C B E D H I G K J F
 
 this tree is a binary search tree, and an inorder traversal of a binary search tree gives you a sorted list
 
-
 ```
-                                     ┌─────┐                              
-                                     │     │                              
-                    ┌────────────────┤  F  ├─────────────────┐            
-                    │                │     │                 │            
-                    │                └─────┘                 │            
-                    │                                        │            
-                    ▼                                        ▼            
-                 ┌─────┐                                  ┌─────┐         
-                 │     │                                  │     │         
-           ┌─────┤  D  ├─────┐                      ┌─────┤  J  ├─────┐   
-           │     │     │     │                      │     │     │     │   
-           │     └─────┘     │                      │     └─────┘     │   
-           │                 │                      │                 │   
-           │                 │                      │                 │   
-           │                 │                      │                 │   
-           │                 │                      │                 │   
-           ▼                 ▼                      ▼                 ▼   
-        ┌─────┐           ┌─────┐                ┌─────┐           ┌─────┐
-        │     │           │     │                │     │           │     │
-   ┌────┤  B  ├────┐      │  E  │                │  G  ├────┐      │  K  │
-   │    │     │    │      │     │                │     │    │      │     │
-   │    └─────┘    │      └─────┘                └─────┘    │      └─────┘
-   │               │                                        │             
-   │               │                                        │             
-   │               │                                        │             
-   ▼               ▼                                        ▼             
-┌─────┐         ┌─────┐                                  ┌─────┐          
-│     │         │     │                                  │     │          
-│  A  │         │  C  │                              ┌───┤  I  │          
-│     │         │     │                              │   │     │          
-└─────┘         └─────┘                              │   └─────┘          
-                                                     │                    
-                                                     │                    
-                                                     ▼                    
-                                                  ┌─────┐                 
-                                                  │     │                 
-                                                  │  H  │                 
-                                                  │     │                 
-                                                  └─────┘                 
+       F
+     /   \
+    D      J
+   / \    / \
+  B   E  G   K
+ / \      \
+A   C      I
+          /
+         H
 ```
 
 level-order traversal
@@ -147,3 +90,9 @@ level-order traversal
   2. as a discovered node is being visited (eg. printing out its value) and dequeued, enqueue its children nodes to be visited later
 - time complexity (assume n nodes): O(n) for best/worst/avg case
 - space complexity: O(1) for best case and O(n) for worst/avg case
+
+preorder/inorder/postorder traversal
+- time complexity (assume n nodes): O(n) for best/worst/avg case
+- space complexity: O(h) where h is tree height
+  - O(n) for worst case because h = n -1
+  - O(log n) for best/avg case because h = log n
