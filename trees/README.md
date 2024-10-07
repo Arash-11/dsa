@@ -1,3 +1,5 @@
+# Trees
+
 Trees represent hierarchical structures and can also serve as a more efficient data structure for certain operations on linear structures.
 
 Maximal number of children of any node in the tree is called the **degree** of the tree.
@@ -12,15 +14,24 @@ Two main representations of trees:
 
 ---
 
-tree: special kind of graph where no node has more than one parent
+undirected graph: edges have no orientation. The edge (u, v) is identical to the edge (v, u)
+
+directed graph or digraph: edges have orientations. The edge (u, v) is the edge _from_ node u _to_ node v
+
+weighted graphs: edges contain a certain weight to represent an arbitrary value (such as cost, distance, quantity, etc.)
+
+directed acyclic graphs (DAGs): directed graphs with no cycles. These graphs play an important role in representing structures with dependencies
+
+tree:
+- special kind of graph where no node has more than one parent
+- an undirected graph with no cycles
+- a connected graph with N nodes and N-1 edges (each node has 1 incoming edge except the root node which has none)
 
 linked list: special kind of tree where no node has more than one child
 
 ---
 
-A tree is a recursive data structure.
-
-In a tree with N nodes, there'll always be exactly N-1 edges (each node has 1 incoming edge except the root node which has none).
+Trees are recursive data structures.
 
 depth of node x = number of edges in path from root to x (i.e. length of path from root to x)
   - depth of node 1 = 0
@@ -45,7 +56,7 @@ height of tree = height of root node
  9  10   11
 ```
 
----
+# Binary trees
 
 Binary tree: a tree in which each node can have at most 2 children
 
