@@ -107,3 +107,16 @@ preorder/inorder/postorder traversal
 - space complexity: O(h) where h is tree height
   - O(n) for worst case because h = n -1
   - O(log n) for best/avg case because h = log n
+
+# AVL trees
+
+a self-balancing binary search tree.
+
+only 3 nodes are used when rotating, regardless of the number of nodes in the entire BST.
+
+a balance factor is used to to balance the height of a BST:
+- balance factor = height of left subtree - height of right subtree = { -1, 0, 1 }
+
+when a node's balance factor is:
+-  positive -> tree is heavy on the left side
+-  negative -> tree is heavy on the right side
